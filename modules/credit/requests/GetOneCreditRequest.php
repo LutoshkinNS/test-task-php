@@ -48,7 +48,7 @@ class GetOneCreditRequest extends RequestDefaultClient
                 $credit = current(array_filter($data, function($item) {
                     return $item['id'] == $this->getId();
                 }));
-                if (!$credit) throw new NotFoundHttpException();
+                if (!$credit) throw new NotFoundHttpException('Кредит не найден');
                 else return $credit;
             }
         };

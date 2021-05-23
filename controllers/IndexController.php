@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\modules\credit\requests\GetAllCreditsRequest;
+use Yii;
 use yii\web\Controller;
 
 class IndexController extends Controller
@@ -13,6 +14,9 @@ class IndexController extends Controller
     }
 
     public function actionError() {
-        return $this->render('error');
+        $exception = Yii::$app->errorHandler->exception;
+        return $this->render('error', [
+            'exception' => $exception,
+        ]);
     }
 }

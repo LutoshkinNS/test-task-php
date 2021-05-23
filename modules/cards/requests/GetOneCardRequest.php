@@ -43,7 +43,7 @@ class GetOneCardRequest extends RequestDefaultClient
                 $card = current(array_filter($data, function($item) {
                     return $item['id'] == $this->getId();
                 }));
-                if (!$card) throw new NotFoundHttpException();
+                if (!$card) throw new NotFoundHttpException('Данная карта не найдена');
                 else return $card;
             }
         };
