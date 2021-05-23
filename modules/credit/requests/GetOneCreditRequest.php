@@ -2,7 +2,7 @@
 
 namespace app\modules\credit\requests;
 
-use app\helpers\requests\RequestDefaultClient;
+use app\components\requests\RequestDefaultClient;
 
 /**
  * Class GetOneCreditRequest

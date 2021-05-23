@@ -1,6 +1,6 @@
 <?php
 
-namespace app\helpers\requests;
+namespace app\components\requests;
 
 use Yii;
 use yii\httpclient\Request;
