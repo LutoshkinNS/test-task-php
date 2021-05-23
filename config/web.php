@@ -6,10 +6,10 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'basic',
+    'id' => 'hlynov-task',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'name' => 'Тестовое задание',
+    'name' => 'Тестовой интернет банк',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -20,11 +20,10 @@ $config = [
     'components' => [
         'httpClient' => [
             'class' => Client::class,
-            'baseUrl' => 'https://test-kit.bank-hlynov.ru/api',
+            'baseUrl' => '',
             'transport' => 'yii\httpclient\CurlTransport',
         ],
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'M0EeHauppVlRVxwZ8C0yHewYpHHL-GPN',
         ],
         'cache' => [

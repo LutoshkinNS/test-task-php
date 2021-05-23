@@ -3,6 +3,7 @@
 namespace app\modules\credit\requests;
 
 use app\components\requests\RequestDefaultClient;
+use yii\httpclient\Response;
 
 /**
  * Class GetOneCreditRequest
@@ -16,7 +17,38 @@ class GetOneCreditRequest extends RequestDefaultClient
     {
         parent::init();
         $this->setMethod('GET');
-        $this->setUrl("/v2/credit/$this->_id/");
+    }
+
+    public function send()
+    {
+        return new class(['id' => $this->_id]) extends Response {
+
+            private int $_id;
+
+            /**
+             * @return int
+             */
+            public function getId(): int
+            {
+                return $this->_id;
+            }
+
+            /**
+             * @param int $id
+             */
+            public function setId(int $id): void
+            {
+                $this->_id = $id;
+            }
+
+            public function getData(): array
+            {
+                $data = ApiData::data();
+                return current(array_filter($data, function($item) {
+                    return $item['id'] == $this->getId();
+                }));
+            }
+        };
     }
 
     /**
