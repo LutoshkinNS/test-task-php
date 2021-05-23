@@ -3,6 +3,7 @@ namespace app\modules\cards\requests;
 
 use app\components\requests\RequestDefaultClient;
 use yii\httpclient\Response;
+use yii\web\NotFoundHttpException;
 
 class GetOneCardRequest extends RequestDefaultClient
 {
@@ -39,9 +40,11 @@ class GetOneCardRequest extends RequestDefaultClient
             public function getData(): array
             {
                 $data = ApiData::data();
-                return current(array_filter($data, function($item) {
+                $card = current(array_filter($data, function($item) {
                     return $item['id'] == $this->getId();
                 }));
+                if (!$card) throw new NotFoundHttpException();
+                else return $card;
             }
         };
     }

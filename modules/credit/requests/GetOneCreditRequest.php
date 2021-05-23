@@ -4,6 +4,7 @@ namespace app\modules\credit\requests;
 
 use app\components\requests\RequestDefaultClient;
 use yii\httpclient\Response;
+use yii\web\NotFoundHttpException;
 
 /**
  * Class GetOneCreditRequest
@@ -44,9 +45,11 @@ class GetOneCreditRequest extends RequestDefaultClient
             public function getData(): array
             {
                 $data = ApiData::data();
-                return current(array_filter($data, function($item) {
+                $credit = current(array_filter($data, function($item) {
                     return $item['id'] == $this->getId();
                 }));
+                if (!$credit) throw new NotFoundHttpException();
+                else return $credit;
             }
         };
     }
