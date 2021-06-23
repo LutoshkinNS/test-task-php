@@ -16,6 +16,7 @@ $config = [
     ],
     'modules' => [
         'credit' => 'app\modules\credit\CreditModule',
+        'cards' => 'app\modules\cards\CardsModule',
     ],
     'components' => [
         'httpClient' => [

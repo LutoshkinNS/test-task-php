@@ -3,6 +3,11 @@
  * @var array $credits
  */
 
+/**
+ * @var array $cards
+ */
+
+
 use yii\helpers\Url;
 
 ?>
@@ -21,3 +26,12 @@ use yii\helpers\Url;
     </div>
 <?php endforeach; ?>
 </div>
+
+<div class="main-page-content d-flex">
+    <?php foreach ($cards as $card): ?>
+        <div class="card hl-card mr-1 mb-1 p-3">
+            <div><?=$card['name']?></div>
+        </div>
+    <?php endforeach; ?>
+</div>
+
