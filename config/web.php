@@ -63,6 +63,8 @@ $config = [
                 'index' => 'index/index',
                 'credit/<id:\d>' => 'credit/get/view',
                 'credits' => 'credit/get/index',
+                'cards' => 'cards/get/index',
+                'cards/<id:\d>' => 'cards/get/view',
             ],
         ],
     ],

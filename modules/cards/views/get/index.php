@@ -6,25 +6,30 @@
 use yii\helpers\Url;
 
 ?>
-<?php foreach ($cards as $card):?>
-    <a class="text-body text-decoration-none" href="<?=Url::to(["/credit/{$card['id']}"])?>">
-        <div class="credit-item pt-4 pl-2">
-            <div class="h2">
-                <?=$card['name']?>
-            </div>
-            <div class="h4">
-                <?=$card['preview']?>
-            </div>
-            <div class="d-flex justify-content-start">
-                <?php foreach ($card['advantages'] as $advantage): ?>
-                    <div class="mark mr-3">
-                        <div class="lead"><?=$advantage['title']?></div>
-                        <div class="small"><?=$advantage['text']?></div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-            <div class="mb-4"></div>
-            <hr class="m-0" />
+<?php foreach ($cards as $card): ?>
+    <div class="flex-row card mb-5 p-3">
+        <div class="d-flex align-items-center card__img m-2 mr-5">
+            <img src="<?=$card['image']?>" alt="<?=$card['name']?>">
         </div>
-    </a>
+        <div class="card__desc">
+            <a class="text-decoration-none" href="<?=Url::to("/cards/{$card['id']}")?>">
+                <h3 class="card__title"><?=$card['name']?></h3>
+            </a>
+            <p class="card__preview"><?=$card['preview']?></p>
+            <ul class="card__advantages d-flex flex-row flex-wrap">
+                <?php foreach ($card['advantages'] as $advantage): ?>
+                    <li class="d-flex flex-column card__advantage">
+                        <span class="card__advantage-title"><?=$advantage['title']?></span>
+                        <span class="card__text"><?=$advantage['text']?></span>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <div class="card__controls d-flex flex-row">
+                <button class="card__btn mr-3">Оформить</button>
+                <a class="card__btn-more" href="<?=Url::to("/cards/{$card['id']}")?>">
+                    Подробнее о карте
+                </a>
+            </div>
+        </div>
+    </div>
 <?php endforeach; ?>

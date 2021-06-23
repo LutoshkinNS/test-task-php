@@ -1,21 +1,39 @@
 <?php
 /**
- * @var array $cards
+ * @var array $card
  */
 ?>
 
 <div>
-    <div class="d-flex w-100 flex-wrap justify-content-between">
-        <div class="d-flex h1"><?=$cards['name']?></div>
-        <div class="d-flex align-items-center">
-            <button class="btn btn-dark h-100 text-center">Приобрести</button>
+    <div class="card-more__item">
+        <div class="card-more__content">
+            <h3 class="card__title"><?=$card['name']?></h3>
         </div>
-        <div class="d-flex w-100 caption"><?=$cards['preview']?></div>
+        <hr />
     </div>
-    <hr />
-    <div class="d-flex">
-        <div class="text-info">
-            <?=$cards['description']?>
+    <div class="card-more__item">
+        <div class="card-more__content">
+            <p class="card-more__subtitle">Карта</p>
+            <img src="<?=$card['image']?>" alt="<?=$card['name']?>">
         </div>
+        <hr />
     </div>
+    <?php foreach ($card['description'] as $item): ?>
+        <div class="card-more__item">
+            <div class="card-more__content row">
+                <div class="col-5">
+                    <?=$item['title']?>
+                </div>
+                <ul class="col-5">
+                    <?php foreach ($item['desc'] as $descItem): ?>
+                        <li class="card-more__list-item"><?=$descItem?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <hr />
+        </div>
+    <?php endforeach; ?>
+    <?php foreach ($card['notes'] as $note): ?>
+        <p><?=$note?></p>
+    <?php endforeach; ?>
 </div>
