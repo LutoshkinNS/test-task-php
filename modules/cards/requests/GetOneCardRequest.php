@@ -5,6 +5,10 @@ use app\components\requests\RequestDefaultClient;
 use yii\httpclient\Response;
 use yii\web\NotFoundHttpException;
 
+/**
+ * Class GetOneCardRequest
+ * @property string $id
+ */
 class GetOneCardRequest extends RequestDefaultClient
 {
     private string $_id;
