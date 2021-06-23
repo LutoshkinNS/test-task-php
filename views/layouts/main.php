@@ -37,6 +37,7 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Главная', 'url' => ['/']],
             ['label' => 'Кредиты', 'url' => ['/credits']],
+            ['label' => 'Карты', 'url' => ['/cards']],
         ],
     ]);
     NavBar::end();
