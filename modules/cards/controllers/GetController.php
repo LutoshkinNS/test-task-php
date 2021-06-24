@@ -2,12 +2,14 @@
 
 namespace app\modules\cards\controllers;
 
+use app\controllers\BehaviorsController;
 use app\modules\cards\requests\GetAllCardsRequest;
 use app\modules\cards\requests\GetOneCardRequest;
 use yii\web\Controller;
 
-class GetController extends Controller
+class GetController extends BehaviorsController
 {
+
     public function actionView(string $id) {
         $card = (new GetOneCardRequest(['id' => $id]))->send()->getData();
         return $this->render('view', ['card' => $card]);
@@ -17,4 +19,5 @@ class GetController extends Controller
         $cards = (new GetAllCardsRequest())->send()->getData();
         return $this->render('index', ['cards' => $cards]);
     }
+
 }
