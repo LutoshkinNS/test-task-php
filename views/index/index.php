@@ -12,16 +12,16 @@ use yii\helpers\Url;
 <div class="main-page-content">
 
     <h2 class="mb-4">Кредиты</h2>
-    <div class="credits-block d-flex mb-5">
+    <div class="credits-block d-flex flex-wrap mb-5">
         <?php foreach ($credits as $credit): ?>
             <div class="card hl-card mr-3 mb-3 p-3">
                 <a class="text-decoration-none" href="<?=Url::to("/credit/{$credit['id']}")?>">
                     <h4 class="credits__title"><?=$credit['name']?></h4>
                 </a>
                 <div class="card-body text-info"><?=$credit['preview']?></div>
-                <div class="d-flex hl-card-buttons">
-                    <button class="btn btn-dark">Пополнить</button>
-                    <button class="btn btn-dark">Погасить</button>
+                <div class="d-flex hl-card-buttons flex-xl-row flex-column">
+                    <button class="main__btn">Пополнить</button>
+                    <button class="main__btn">Погасить</button>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -33,11 +33,11 @@ use yii\helpers\Url;
         <div class="cards__wrap d-flex flex-wrap">
             <?php foreach ($cards as $card): ?>
                 <div class="card hl-card mr-3 mb-3 p-3">
-                    <div class="d-flex justify-content-center card__img mb-3">
+                    <div class="d-flex justify-content-xl-center card__img mb-3">
                         <img src="<?=$card['image']?>" alt="<?=$card['name']?>">
                     </div>
                     <div class="card__desc d-flex flex-column">
-                        <a class="text-decoration-none" href="<?=Url::to("/cards/{$card['id']}")?>">
+                        <a class="card__title" href="<?=Url::to("/cards/{$card['id']}")?>">
                             <h3 class="card__title"><?=$card['name']?></h3>
                         </a>
                         <p class="card__preview"><?=$card['preview']?></p>
@@ -49,8 +49,8 @@ use yii\helpers\Url;
                                 </li>
                             <?php endforeach; ?>
                         </ul>
-                        <div class="card__controls d-flex flex-row">
-                            <button class="card__btn mr-2">Оформить</button>
+                        <div class="card__controls d-flex flex-xl-row flex-column">
+                            <button class="main__btn mr-2">Оформить</button>
                             <a class="card__btn-more" href="<?=Url::to("/cards/{$card['id']}")?>">
                                 Подробнее о карте
                             </a>
@@ -59,7 +59,7 @@ use yii\helpers\Url;
                 </div>
             <?php endforeach; ?>
         </div>
-  </div>
+    </div>
 
 </div>
 

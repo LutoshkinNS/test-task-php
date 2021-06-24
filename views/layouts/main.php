@@ -49,6 +49,9 @@ AppAsset::register($this);
         ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
+        <div class="arrow-up" id="arrow-up">
+            <div></div>
+        </div>
     </div>
 </div>
 

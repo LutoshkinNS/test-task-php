@@ -7,7 +7,7 @@ use yii\helpers\Url;
 
 ?>
 <?php foreach ($cards as $card): ?>
-    <div class="flex-row card mb-5 p-3">
+    <div class="flex-lg-row card mb-5 p-3">
         <div class="d-flex align-items-center card__img m-2 mr-5">
             <img src="<?=$card['image']?>" alt="<?=$card['name']?>">
         </div>
@@ -25,7 +25,7 @@ use yii\helpers\Url;
                 <?php endforeach; ?>
             </ul>
             <div class="card__controls d-flex flex-row">
-                <button class="card__btn mr-3">Оформить</button>
+                <button class="main__btn mr-3">Оформить</button>
                 <a class="card__btn-more" href="<?=Url::to("/cards/{$card['id']}")?>">
                     Подробнее о карте
                 </a>

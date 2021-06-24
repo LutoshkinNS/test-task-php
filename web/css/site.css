@@ -2,8 +2,10 @@
 
 html,
 body {
+    position: relative;
     height: 100%;
     font-family: 'Open Sans', sans-serif;
+    scroll-behavior: smooth;
 }
 
 ul {
@@ -14,6 +16,26 @@ ul {
 
 h2 {
     font-weight: normal;
+}
+
+.main__btn {
+    width: 140px;
+    height: 50px;
+    border-radius: 9px;
+    color: white;
+    background-color: rgba(0, 156, 163, 1);
+    border: none;
+    margin-bottom: 10px;
+}
+
+.main__btn:hover {
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 156, 163, 0.2);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(0, 156, 163, 0.2);
+    box-shadow: 0px 0px 10px 2px rgba(0, 156, 163, 0.2);
+}
+
+.main__btn:active {
+    background-color: rgba(0, 156, 163, 0.8);
 }
 
 .wrap {
@@ -158,6 +180,11 @@ a.desc:after {
     color: rgba(0, 156, 163, 1);
 }
 
+.card__title:hover {
+    color: rgba(0, 156, 163, 0.8);
+    text-decoration: none;
+}
+
 .card__img img {
     border-radius: 9px;
     -webkit-box-shadow: 4px 4px 10px 2px rgba(34, 60, 80, 0.2);
@@ -166,7 +193,7 @@ a.desc:after {
 }
 
 .main-page-content .card__img img {
-    width: 100%;
+    max-width: 100%;
 }
 
 .card__preview {
@@ -188,25 +215,6 @@ a.desc:after {
 }
 
 .card__controls {
-}
-
-.card__btn {
-    width: 150px;
-    height: 56px;
-    border-radius: 9px;
-    color: white;
-    background-color: rgba(0, 156, 163, 1);
-    border: none;
-}
-
-.card__btn:hover {
-    -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 156, 163, 0.2);
-    -moz-box-shadow: 0px 0px 10px 2px rgba(0, 156, 163, 0.2);
-    box-shadow: 0px 0px 10px 2px rgba(0, 156, 163, 0.2);
-}
-
-.card__btn:active {
-    background-color: rgba(0, 156, 163, 0.8);
 }
 
 .card__btn-more {
@@ -239,17 +247,9 @@ a.desc:after {
 
 /*card-more start*/
 
-.card-more__item {
-    margin-bottom: 30px;
-}
-
 .card-more__content {
     display: flex;
     justify-content: space-between;
-}
-
-.card-more__item {
-    padding-top: 5px;
 }
 
 .card-more__list-item:not(:last-child) {
@@ -259,3 +259,42 @@ a.desc:after {
 }
 
 /*card-more end*/
+
+.arrow-up {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    background-color: rgba(0, 156, 163, 1);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.arrow-up div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -3px;
+    margin-left: -5px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    transform: rotate(-135deg);
+}
+
+@media (max-width: 992px) {
+    .main-page-content .hl-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 540px) {
+    .main-page-content .hl-card {
+        width: 100%;
+    }
+}
